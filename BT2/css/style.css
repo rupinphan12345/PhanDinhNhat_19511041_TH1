@@ -1,0 +1,13 @@
+.list {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.item {
+    border: solid 10px white;
+    width: 31%;
+    height: 100px;
+    background-color: blueviolet;
+}
