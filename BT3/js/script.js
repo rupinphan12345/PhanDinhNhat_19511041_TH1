@@ -14,8 +14,6 @@ $(document).ready(function() {
                 `
             })
 
-            // console.log(data);
-
             $("#posts").append(htmlPosts)
         },
         error: function(jqXHR, textStatus, errorThrown) {
@@ -24,3 +22,30 @@ $(document).ready(function() {
     });
 
 });
+
+const btnAdd = document.getElementById("btnAdd")
+
+
+const addPost = (inputValue) => {
+    const body = {
+        title: inputValue,
+        body: "fwfe"
+    }
+    $.ajax({
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        type: "POST",
+        data: JSON.stringify(body),
+        dataType: 'json',
+        success: function(response) {
+            console.log("success");
+        },
+        error: function(error) {
+            console.log("Something went wrong", error);
+        }
+    });
+
+}
+btnAdd.onclick = () => {
+    let inputValue = $("#inputTitle").val();
+    addPost(inputValue);
+}
